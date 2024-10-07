@@ -14,13 +14,18 @@ Sparse Auto-Encoders are used to isolate individual features. We expand the N-di
 2. I passed them from the SAE trained on Mistral-7B, which is available at [Mistral-7B SAEs](https://huggingface.co/JoshEngels/Mistral-7B-Residual-Stream-SAEs).
 3. Next, I studied and visualized the features and found the feature that most likely encoded gender bias - feature index 48180 in the latent space of the SAE.
  ![alt text](resources/feature_visualization.png "Visualizing Feature #48180")
-*Visualizing Feature #48180*  
+<p align="center">Visualizing Feature #48180</p>  
 4. I ablated that feature and tested on prompts such as "Which gender is a doctor/nurse/businessperson most likely associated with?"
 
 ## Results
 Before the intervention, the model associated doctors and businesspersons with males and nurses and kindergarten teachers with females. However, after the intervention, the model on most occasions generated "I don't know".
 
 ![alt text](resources/Example-1.png "Example 1")
+<p align="center">The model associated a nurse with female gender before editing the model activations</p>
+
 ![alt text](resources/Example-2.png "Example 2")
+<p align="center">The model associated a successful businessperson with male gender before editing the model activations</p>
+
 ![alt text](resources/Example-3.png "Example 3")
+<p align="center">The model associated a kindergarten teacher with female gender before editing the model activations</p>
 
